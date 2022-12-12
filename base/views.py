@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from .models import Room, Topic, Message
-from .forms import RoomForm
+from .forms import RoomForm, UserForm
 
 # rooms = [
 #     {'id':1, 'name': 'Lets learn python!'},
@@ -178,5 +178,7 @@ def deleteMessage(request, pk):
 
 @login_required(login_url='login')
 def updateUser(request):
-    context = {}
+    user = request.user
+    form = UserForm(instance=user)
+    context = {'form': form}
     return render(request, 'base/update_user.html', context)
