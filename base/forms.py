@@ -9,6 +9,5 @@ class RoomForm(ModelForm):
         exclude = ['host', 'participants']
 class UserForm(ModelForm):
     class Meta:
-        medel = User
-        # fields = ['username', 'email']
-        fields = '__all__'
+        model = User
+        fields = ['username', 'email']
