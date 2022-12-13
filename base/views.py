@@ -2,11 +2,10 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
-from .models import Room, Topic, Message
+from .models import Room, Topic, Message, User
 from .forms import RoomForm, UserForm
 
 # rooms = [
@@ -123,7 +122,7 @@ def createRoom(request):
         # form = RoomForm(request.POST)
         # if form.is_valid():
         #     form.save()
-        #     return redirect('home')
+        return redirect('home')
 
     context = {'form': form, 'topics': topics}
     return render(request, 'base/room_form.html', context)
