@@ -7,9 +7,9 @@ from .serializers import RoomSerializer
 @api_view(['GET'])
 def getRoutes(request):
     routes = [
-        'GET /api'
+        'GET /api',
         'GET /api/rooms',
-        'GET /api/rooms:id'
+        'GET /api/rooms:id',
     ]
     return Response(routes)
 
