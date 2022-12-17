@@ -19,6 +19,7 @@ def loginPage(request):
     if request.method == "POST":
         email = request.POST.get('email').lower()
         password = request.POST.get('password')
+        print('++++', email, password)
 
         try:
             user = User.object.get(email=email)
